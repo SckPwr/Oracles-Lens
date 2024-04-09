@@ -33,7 +33,7 @@ namespace LeagueActivityBot.Services
             foreach (var game in games)
             {
                 var summoners = game.GameParticipants.Select(p => p.Summoner);
-                var currentGameInfo = await _riotClient.GetCurrentGameInfo(summoners!.First()!.SummonerId);
+                var currentGameInfo = await _riotClient.GetCurrentGameInfo(summoners!.First()!.Puuid);
 
                 if (currentGameInfo.IsInGameNow)
                 {

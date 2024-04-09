@@ -49,7 +49,7 @@ namespace LeagueActivityBot.Services
                 {
                     if (summonerNamesToSkip.Contains(summoner.Name)) continue;
 
-                    var currentGameInfo = await _riotClient.GetCurrentGameInfo(summoner.SummonerId);
+                    var currentGameInfo = await _riotClient.GetCurrentGameInfo(summoner.Puuid);
                     if (!currentGameInfo.IsInGameNow) continue;
 
                     var existingGame = _gameInfoRepository.GetAll()
